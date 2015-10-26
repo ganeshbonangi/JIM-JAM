@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>  	<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>     	<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>     	<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js">  <!--<![endif]-->
+  <head>
+	<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width" />
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, 
+    user-scalable=no, initial-scale=1, maximum-scale=1, user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<style type="text/css">
+body { margin: 0; padding: 0; background: black;}
+canvas { display: block; margin: 0 auto;  }
+</style>
+
+<!--meta name="apple-mobile-web-app-capable" content="yes"  />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" user-scalable="no"-->
+	<style>
+		html {
+		  -webkit-user-select: none;  /* Chrome all / Safari all */
+		  -moz-user-select: none;     /* Firefox all */
+		  -ms-user-select: none;      /* IE 10+ */
+
+		  /* No support for these yet, use at own risk */
+		  -o-user-select: none;
+		  user-select: none;          
+      background: black;
+}
+.play{
+width:118px;
+height:39px;
+position: relative;
+padding-top: 50%;
+padding-left: 11%;
+/*background-image:url("Image/play.png");*/
+}
+.help{
+width:118px;
+height:39px;
+/*background-image:url("Image/help.png");*/
+}
+.popup{
+ 
+display: block;
+position: absolute;
+width: 320px;
+height: 420px;
+top: 0px;
+left: 0px;
+bottom: 0px;
+right: 0px;
+margin: auto;
+  background-image:url('Image/popup.png');
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+}
+.layer{
+  position: fixed;
+  top:0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: white;
+  opacity:0.5;
+}
+	</style>
+	<script src="scripts/behavior.js">	</script>
+	<script type="text/javascript" src="scripts/BulkImageLoader.js"></script>
+	<script type="text/javascript" src="scripts/howler.min.js"></script>
+	<script type="text/javascript">
+   var audioPath = ["sound/01.ogg","sound/01.mp3", "sound/mostrarpanel.ogg","sound/mostrarpanel.mp3", "sound/10.ogg"];
+   var totalAudio = 0;
+   function onSoundLoad(id) {++totalAudio;
+    alert(totalAudio + "==" + audioPath.length+"=="+id)
+    if (totalAudio == audioPath.length) {
+     alert("Loaded")
+    }
+   }
+   function onSoundError() {
+    alert("Error")
+    // ++totalAudio;
+    if (totalAudio == audioPath.length) {
+     alert("Error")
+    }
+   }
+   function muteAll() {
+    alert("Error")
+    // ++totalAudio;
+    if (totalAudio == audioPath.length) {
+     alert("Error")
+    }
+   }
+   var playBtn1 = document.getElementById("play1");
+   var playBtn2 = document.getElementById("play2");
+   var muteBtn = document.getElementById("mute");
+   var hitSound = new Howl({
+    urls : [audioPath[0],audioPath[1]]/*,onload:function(){alert("onLoad1")},onend: function() {
+	alert('Finished!1');
+  }*/
+   });
+   var levelSound = new Howl({
+    urls : [audioPath[2],audioPath[3]]/*,onload:function(){alert("onLoad2")},onend: function() {
+	alert('Finished!1');
+  }*/
+   });
+   var sound3 = new Howl({
+    urls : [audioPath[2]]/*,onload:function(){alert("onLoad3")}*/
+   })
+   /*playBtn1.addEventListener("click", function(event) {
+    
+    sound1.play();
+   })
+   playBtn2.addEventListener("click", function(event) {
+    sound2.play();
+   })*/
+   var isMute = false;
+   /*muteBtn.addEventListener("click", function(event) {
+    if (isMute) {
+     Howler.unmute();
+     isMute = false;
+    } else {
+     Howler.mute()
+     isMute = true
+    }
+   })*/
+  </script>
+  </head>
+ 
+  <body >  
+
+<canvas id="canvasOne"> this browser not supported </canvas>
+
+<div class="popup"> </div>
+
+
+
+  </body>
+</html>

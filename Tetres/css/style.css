@@ -1,0 +1,70 @@
+canvas { display: block; margin: 0 auto; background: #fff; }
+body { margin: 0; padding: 0; background: #000;}
+
+#gameStatusContainer{
+	/*width: 228px;
+	height :640px;*/
+	display:none;
+	float : right;
+	background : white; 
+}
+
+#gameContainer{
+	/*width : 320px;
+	height : 640px;
+	float : left;*/
+	text-align : center;
+	
+}
+
+#gameboard
+{	
+	/*width:550px;
+	height:640px;*/
+	margin:0 auto;
+}
+
+#score
+{
+	font-size: 18pt;
+	font-family: sans-serif, verdana;
+	color: #fefefe;
+	width: 320px;
+	margin: 0 auto;
+}
+
+#directions p
+{
+	font-size: 14pt;
+	font-family: sans-serif, verdana;
+	color: #fefefe;
+	width: 320px;
+	margin: 0 auto;
+}
+
+#startPage
+{
+	position: absolute;
+	color: white;
+	top: 320px;
+	left: 45%;
+	text-align : center;
+	z-index: 1000;
+}
+
+#playBtn{
+	margin-top:10px;
+}
+
+.gameStatus
+{
+	border: 1px solid red;
+	width: 150px;
+	margin-left: 45px;
+	
+}
+
+#nextBlock{
+	padding-left : 25px;
+	padding-top : 25px;
+}
