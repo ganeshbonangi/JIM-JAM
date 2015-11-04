@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html en ng-app="dashboard">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+
+    <script>
+        var list=[];
+        function addNewItem(){
+            var price = parseInt(document.getElementById('price').value==""?0:document.getElementById('price').value);
+            var mname = document.getElementById('mname').value;
+            var units = parseInt(document.getElementById('units').value==""?0:document.getElementById('units').value);
+            var mfg = document.getElementById('mfg').value;
+            var batch = document.getElementById('batch').value;
+            var expire = document.getElementById('expire').value;
+            clearInputs();
+            list.push({name:mname,price:price,units:units,mfg:mfg,batch:batch,expire:expire});
+            renderHtml();
+        }
+        function clearInputs(){
+            document.getElementById('price').value = document.getElementById('mname').value = '';
+            document.getElementById('units').value = document.getElementById('mfg').value = '';
+            document.getElementById('batch').value = document.getElementById('expire').value = '';
+        }
+        function removeThis(index){
+            list.splice(index,1);
+            renderHtml();
+        }
+        function renderHtml(){
+            var htmlStr = "";
+            var total = 0;
+            for(var i =0; i<list.length;i++){
+                var rowprice = list[i].price*list[i].units;
+                htmlStr+="<tr><td>"+list[i].units+"</td><td>"+list[i].name+"</td><td>"+list[i].mfg+"</td><td>"+list[i].batch+"</td><td>"+list[i].expire+"</td><td>"+rowprice+".00</td><button onclick='removeThis("+i+")'>remove</button>"+"</tr>";
+                total+=rowprice;
+            }
+            document.getElementById("list").innerHTML = htmlStr;
+            document.getElementById("total").innerHTML = total;
+        }
+    </script>
+    <style>
+        @media print {
+            button,.unnes,.form{
+                display: none;
+            }
+
+        }
+        .container{
+            border: 2px solid black;
+            border-radius: 4px;
+            width:575px;
+            padding: 5px;
+            font-weight: bold;
+        }
+        .title{
+            font-weight: bolder;
+            font-size: larger;
+        }
+        .floatLeft{
+            float: left;
+        }
+        .floatRight{
+            float: right;
+        }
+        .centertitle{
+            text-align: center;
+        }
+        .light{
+            font-weight: normal;
+            text-decoration: underline;
+        }
+        .row{
+            display: block;
+            height: 20px;
+        }
+        .half{
+            width: 49%;
+            display: inline-block;
+            font-size: smaller;
+        }
+        .sign{
+                margin-top: 20px;
+                margin-right: 20px;
+            }
+        table{
+            width: 100%;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="header">
+            <a>CASH MEMO</a>&nbsp;&nbsp;
+            <span class="title">&#43;MAHALAXMI MEDICAL STORES&#43;</span>&nbsp;&nbsp;
+            <span>Mob.:9920455898</span>
+        </div>
+        <div class="centertitle">Medical and Druggist</div>
+        <div>Shop no. 02, L. B. Godown, Property no. 0041, Ghansoli, Navi Mumbai 400701</div>
+        <hr />
+        <div class="row">
+             <span class="floatLeft" >Bill No. <span class="light"  contenteditable="true">Ganesh. B</span></span>
+             <span class="floatRight">Date: <span class="light" contenteditable="true">Ganesh. B</span></span>
+        </div>
+        <div class="row">
+             <span class="floatLeft" >Pt's name:<span class="light" contenteditable="true">Ganesh. B</span></span>
+             <span class="floatRight">Address:<span class="light" contenteditable="true">Ganesh. B</span></span>
+        </div>
+        <div class="row">
+             <span class="floatLeft" >Doctor's Name:<span class="light" contenteditable="true">Ganesh. B</span></span>
+             <span class="floatRight">Address:<span class="light" contenteditable="true">Ganesh. B</span></span>
+        </div>
+        <hr />
+        <table>
+            <thead>
+                <tr>
+                    <td>Qty.</td>
+                    <td>PARTICULARS</td>
+                    <td>Mfg.</td>
+                    <td>Batch No.</td>
+                    <td>Expiry No.</td>
+                    <td>Amount Rs.</td>
+                </tr>
+            </thead>
+            <tbody id="list">
+            </tbody>
+            <tfoot>
+                <tr><td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Total amount:</td>
+                    <td><span id="total"></span>.00</td>
+                </tr>
+            </tfoot>
+        </table>
+        
+
+        <hr />
+        <div class="half">
+             <span  >Any overcharges throw by mistake will be refunded.</span><br />
+             <span >Drug Lic. No. TZ7-81594-20, TZ7-81596-20C, TZ7-81595-21</span>
+        </div>
+        <div class="half">
+             <span  >Goods onece sold will not be taken back. Please consult your doctor before using medicine</span><br />
+             <span class="floatRight sign" >Ph.Signature</span>
+        </div>
+        </div> 
+    <div>
+        <div class="form">
+            <button onclick="addNewItem()">add new</button>
+       
+        <div class="unnes">medicine name<input type="text" id="mname"/> </div>
+        <div>each price<input type="text" id="price"/> </div>
+        <div>Unites<input type="text" id="units"/></div>
+        <div>Mfg<input type="text" id="mfg"/></div>
+        <div>Batch<input type="text" id="batch"/></div>
+        <div>expire<input type="text" id="expire"/></div>
+         </div>
+</body>
+
+</html>
